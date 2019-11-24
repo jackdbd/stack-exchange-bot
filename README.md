@@ -20,6 +20,8 @@ When testing your lambda locally, be sure to use the same Node.js version. I inc
 nvm use
 ```
 
+Since this project includes a `.nvmrc` file, the same Node.js version will be used on [Travis CI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs#specifying-nodejs-versions-using-nvmrc).
+
 ### Install dependencies
 
 Install both production and development dependencies:

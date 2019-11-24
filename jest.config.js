@@ -3,16 +3,15 @@ const config = {
   globals: {
     // enable diagnostics for test files only
     'ts-jest': {
-      diagnostics: {
-        pathRegex: /\.(spec|test)\.ts$/,
-      },
+      diagnostics: true,
     },
-  },
-  transform: {
-    '.+\\.ts?': 'ts-jest',
   },
   moduleFileExtensions: ['js', 'ts'],
   modulePathIgnorePatterns: ['/build/', '/node_modules/'],
+  testMatch: ['**/*.spec.ts'],
+  transform: {
+    '.+\\.ts?': 'ts-jest',
+  },
   verbose: true,
 };
 

@@ -16,7 +16,7 @@
     "bot:update:dev": "yarn lint && yarn build && claudia update --set-env-from-json secrets-dev.json --profile claudia",
     "bot:update:prod": "yarn lint && yarn build && claudia update --version prod --set-env-from-json secrets-prod.json --profile claudia",
     "build": "tsc",
-    "ci": "yarn lint && yarn test",
+    "ci": "yarn lint && yarn test --ci",
     "claudia:help": "claudia --help",
     "claudia:list": "claudia list --profile claudia",
     "clean": "rm -rf build",
@@ -26,7 +26,7 @@
     "lint": "eslint src/*.{js,ts} @types/**/*.d.ts --quiet --fix",
     "menu": "ntl --descriptions --exclude build dynamodb* menu nuke --autocomplete --size 15",
     "nuke": "yarn clean && rm -rf node_modules && rm yarn.lock",
-    "test": "jest"
+    "test": "jest --logHeapUsage --detectOpenHandles"
   },
   "ntl": {
     "descriptions": {
