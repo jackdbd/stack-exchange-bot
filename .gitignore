@@ -1,0 +1,8 @@
+build/
+coverage/
+node_modules/
+
+secrets.json
+secrets-dev.json
+secrets-prod.json
+yarn-error.log
