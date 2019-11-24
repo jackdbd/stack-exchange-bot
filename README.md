@@ -1,6 +1,7 @@
 # Stack Exchange Telegram Bot
 
 [![Build Status](https://travis-ci.com/jackdbd/stack-exchange-bot.svg?branch=master)](https://travis-ci.com/jackdbd/stack-exchange-bot) [![codecov](https://codecov.io/gh/jackdbd/stack-exchange-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/jackdbd/stack-exchange-bot) [![Known Vulnerabilities](https://snyk.io//test/github/jackdbd/stack-exchange-bot/badge.svg?targetFile=package.json)](https://snyk.io//test/github/jackdbd/stack-exchange-bot?targetFile=package.json) [![GitHub issues](https://img.shields.io/github/issues/jackdbd/stack-exchange-bot.svg)](https://github.com/jackdbd/stack-exchange-bot/issues/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjackdbd%2Fstack-exchange-bot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjackdbd%2Fstack-exchange-bot?ref=badge_shield)
 
 A Telegram bot to explore the [Stack Exchange API](https://api.stackexchange.com/docs). Built with [Claudia.js](https://claudiajs.com/).
 
@@ -62,3 +63,7 @@ yarn bot:update:prod && yarn api:release  # production
 ## Typescript type definitions
 
 At the moment [claudia-api-builder](https://www.claudiajs.com/claudia-api-builder.html) and [claudia-bot-builder](https://claudiajs.com/claudia-bot-builder.html) don't ship their type definitions. I included some type definitions in the `@types` directory. They are ok for the current needs of this project, but they are incomplete. Don't rely on them too much.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjackdbd%2Fstack-exchange-bot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjackdbd%2Fstack-exchange-bot?ref=badge_large)
