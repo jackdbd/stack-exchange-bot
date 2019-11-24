@@ -1,0 +1,84 @@
+{
+  "name": "stack-overflow-bot",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "build/bot.js",
+  "files": [
+    "build/**/*.*",
+    "package.json"
+  ],
+  "scripts": {
+    "api:release": "claudia set-version --version prod --profile claudia",
+    "bot:configure-custom-stage-var": "yarn lint && yarn build && claudia update --custom-stage-var foo --profile claudia",
+    "bot:configure-telegram": "yarn lint && yarn build && claudia update --configure-telegram-bot --profile claudia",
+    "bot:create": "yarn lint && yarn build && claudia create --region eu-west-3 --api-module build/bot --policies policy --profile claudia",
+    "bot:destroy": "claudia destroy --profile claudia",
+    "bot:update:dev": "yarn lint && yarn build && claudia update --set-env-from-json secrets-dev.json --profile claudia",
+    "bot:update:prod": "yarn lint && yarn build && claudia update --version prod --set-env-from-json secrets-prod.json --profile claudia",
+    "build": "tsc",
+    "claudia:help": "claudia --help",
+    "claudia:list": "claudia list --profile claudia",
+    "clean": "rm -rf build",
+    "dynamodb:create-table": "aws dynamodb create-table --table-name users --attribute-definitions AttributeName=userid,AttributeType=S --key-schema AttributeName=userid,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --region eu-west-3 --query TableDescription.TableArn --output text --profile claudia",
+    "lambda:tag": "claudia tag --tags 'DEPARTMENT=Department A,LEVEL=awesome' --profile claudia",
+    "lambda:test": "yarn build && claudia test-lambda --event event.json --profile claudia",
+    "lint": "eslint src/*.{js,ts} @types/**/*.d.ts --quiet --fix",
+    "menu": "ntl --descriptions --exclude build dynamodb* menu nuke --autocomplete --size 15",
+    "nuke": "yarn clean && rm -rf node_modules && rm yarn.lock",
+    "test": "jest"
+  },
+  "ntl": {
+    "descriptions": {
+      "api:release": "Set to `prod` the API Gateway stage variable `lambdaVersion` of the latest deployment",
+      "bot:configure-custom-stage-var": "Configure a stage variable on AWS API Gateway",
+      "bot:configure-telegram": "Configure Telegram access token as stage variable on AWS API Gateway",
+      "bot:create": "Create API on AWS API Gateway, create lambda on AWS Lambda, create IAM security role, setup policies",
+      "bot:destroy": "Destroy the API on AWS API Gateway, undeploy the lambda on AWS Lambda, destroy IAM security roles",
+      "bot:update:dev": "Build and re-deploy the bot",
+      "bot:update:prod": "Build and re-deploy the bot (stage `prod` on API Gateway)",
+      "claudia:list": "List published versions of the lambda",
+      "lambda:tag": "Tag the lambda with key/value pairs",
+      "lint": "lint js/ts files with ESLint",
+      "nuke": "Remove build/, node_modules/, yarn.lock"
+    }
+  },
+  "dependencies": {
+    "aws-lambda": "^0.1.2",
+    "aws-sdk": "^2.574.0",
+    "claudia-api-builder": "^4.1.2",
+    "claudia-bot-builder": "^4.5.0",
+    "got": "^9.6.0",
+    "print-error": "^0.1.17",
+    "souffleur": "^2.0.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.36",
+    "@types/cheerio": "^0.22.14",
+    "@types/got": "^9.6.9",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.11",
+    "@types/showdown": "^1.9.3",
+    "@types/uuid": "^3.4.6",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "cheerio": "^1.0.0-rc.3",
+    "claudia": "^5.9.2",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.9.0",
+    "ntl": "^4.0.0",
+    "prettier": "^1.19.1",
+    "showdown": "^1.9.1",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  },
+  "keywords": [
+    "bot",
+    "claudia",
+    "serverless",
+    "typescript"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "stack-overflow-bot-executor",
+    "name": "stack-overflow-bot",
+    "region": "eu-west-3"
+  },
+  "api": {
+    "id": "ivrreadbuj",
+    "module": "build/bot"
+  }
+}

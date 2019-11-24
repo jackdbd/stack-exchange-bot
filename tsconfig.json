@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "diagnostics": false,
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "listEmittedFiles": true,
+    "listFiles": false,
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "./build",
+    "removeComments": true,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "es5",
+    "typeRoots": ["@types", "node_modules/@types"]
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["src"]
+}
