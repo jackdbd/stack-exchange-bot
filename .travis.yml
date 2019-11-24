@@ -1,0 +1,14 @@
+language: node_js
+sudo: false
+cache: yarn
+install:
+  - yarn
+  - yarn global add codecov
+script:
+  - yarn run ci
+after_success:
+  - codecov
+notifications:
+  email:
+    on_failure: always
+    on_success: change

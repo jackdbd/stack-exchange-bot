@@ -16,6 +16,7 @@
     "bot:update:dev": "yarn lint && yarn build && claudia update --set-env-from-json secrets-dev.json --profile claudia",
     "bot:update:prod": "yarn lint && yarn build && claudia update --version prod --set-env-from-json secrets-prod.json --profile claudia",
     "build": "tsc",
+    "ci": "yarn lint && yarn test",
     "claudia:help": "claudia --help",
     "claudia:list": "claudia list --profile claudia",
     "clean": "rm -rf build",

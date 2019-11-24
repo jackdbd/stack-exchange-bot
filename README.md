@@ -1,5 +1,7 @@
 # Stack Exchange Telegram Bot
 
+[![Build Status](https://travis-ci.com/jackdbd/stack-exchange-bot.svg?branch=master)](https://travis-ci.com/jackdbd/stack-exchange-bot) [![codecov](https://codecov.io/gh/jackdbd/stack-exchange-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/jackdbd/stack-exchange-bot) [![Known Vulnerabilities](https://snyk.io//test/github/jackdbd/stack-exchange-bot/badge.svg?targetFile=package.json)](https://snyk.io//test/github/jackdbd/stack-exchange-bot?targetFile=package.json)
+
 A Telegram bot to explore the [Stack Exchange API](https://api.stackexchange.com/docs). Built with [Claudia.js](https://claudiajs.com/).
 
 ## Installation and Configuration
